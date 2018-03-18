@@ -5,6 +5,7 @@ which ones will be print, and which ones will be println's.
 I made this program so that I could provide it to a student I'm tutoring, but can be
 reused in the future for anyone else I'm tutoring.
 
+The program is executed within a command line(and communicates to the user through the command line)
 A sample execution of the program (> indicates user input):
 This program will generate a random series of prinout statements,
 which may either be print, or println
