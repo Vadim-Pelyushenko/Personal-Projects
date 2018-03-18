@@ -1,5 +1,5 @@
-This is a program that can detect polynomial patterns from input. Or in fewer words:
-Polynomial Interpolation
+This is a console program that can detect polynomial patterns from input. Or in fewer words:
+It performs Polynomial Interpolation
 The unknown Function F, is assumed to be a polynomial, 
 The input is given as integers that are outputs for F(0), F(1), F(2), F(3)... in
 that order.
@@ -16,4 +16,3 @@ This program could be done trivially were it to be turned into an augmented matr
 with Reduced Row Echelon Form. However, the runtime complexity for solving a matrix is O(n^3).
 The runtime complexity of the algorithm I've come up with is O(n^2)... My proof for this as
 of yet unwritten, but can be described in person :P
-
