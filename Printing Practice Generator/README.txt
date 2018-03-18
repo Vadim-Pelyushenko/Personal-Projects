@@ -4,6 +4,7 @@ which ones will be print, and which ones will be println's.
 
 I made this program so that I could provide it to a student I'm tutoring, but can be
 reused in the future for anyone else I'm tutoring.
+It also makes use of the RandomPermutations algorithms that I have made :)
 
 The program is executed within a command line(and communicates to the user through the command line)
 A sample execution of the program (> indicates user input):
