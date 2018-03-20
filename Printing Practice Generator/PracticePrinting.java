@@ -38,7 +38,7 @@ public class PracticePrinting
 			else
 				System.out.print(alphabet.charAt(i));
 		}		
-		System.out.println("----------------------------------------------------");
+		System.out.println("\n----------------------------------------------------");
 		System.out.println("Did you get it right?");
  	}
 }
