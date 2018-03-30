@@ -32,14 +32,16 @@ public class Power_Reduction
 	
 	public static void printFormula(int[] coeffs, int n) 
 	{
-		int div = (int) Math.pow(2, n);
-		if(coeffs[0] != 0) 
-			System.out.printf("(%d/%d) ",coeffs[0],div);
-		div /= 2;
+		int div = (int) Math.pow(2, n - 1);
 		
-		int start = coeffs[0] == 0 ? 1 : 2;
+		int start = coeffs[0] == 0 ? 3 : 2;
+		if(start == 2) 
+			System.out.print(new Fraction(coeffs[0],div * 2));
+		else
+			System.out.printf("%scos(x)", new Fraction(coeffs[1],div));
+		
 		for(int i = start; i <= n; i += 2) 
-			System.out.printf("(%d/%d)cos(%dx) ",coeffs[i],div,i);
+			System.out.printf(" + %scos(%dx)", new Fraction(coeffs[i],div), i);
 		System.out.println();
 	}
 	
