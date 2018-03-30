@@ -1,0 +1,136 @@
+\documentclass[12pt]{article}
+
+\usepackage{amsmath}
+
+\title{A Generalized Algorithm for producing Integer Power Reduction Formulas
+of Cosine}
+
+\begin{document}
+\maketitle
+\noindent \textbf{The idea behind this algorithm was inspired by a video 
+entitled \textit{cos(1) + ... + cos(n)} by Peyam R. Tabrizian}
+\\
+\textbf{https://www.youtube.com/watch?v=7LBQTpiK-Xg}
+\\
+\\
+\textbf{Prior to seeing this video, I understood that complex numbers stemmed from
+the idea that $\sqrt{-1} = i$, and that complex numbers had some properties and
+could be dealt with in particular ways, but I did not believe they had any utility.}
+\\
+\\
+\textbf{After watching the video however, I became a believer. So I present a way
+a way I've discovered, for generating the integer power reduction formulas for cosine which hinges on the imaginary representation of cosine.}
+\newpage
+\noindent This analysis begins with (1)Euler's Formula:
+$e^{i\theta} = \cos(\theta) + i\sin(\theta)$
+\\
+Plugging in $-\theta$, we see that 
+$e^{-i\theta} = \cos(-\theta) + i\sin(-\theta) = \cos(\theta) - i\sin(\theta)$
+\\
+\\
+We can then add these two equations to get the following identity(2):
+\\
+$e^{i\theta} + e^{-i\theta} = 2\cos(\theta) \to 
+\cos(\theta) = \frac{1}{2}(e^{i\theta} + e^{-i\theta})$
+\\
+\\
+This will be very important, because it means that whenever we can turn, for instance, $e^{7i} + e^{-7i} \to 2\cos(7x)$
+\\
+\\
+So lets start applying what we now know.
+\begin{align}
+\cos^2\theta &= \cos(\theta) \cdot \cos(\theta) 
+\\
+&= \frac{1}{4}(e^{i\theta} + e^{-i\theta})^2
+\\
+&= \frac{1}{4}(e^{2i\theta} + 2 + e^{-2i\theta})
+\\
+&= \frac{1}{4}(2cos(2\theta) + 2)
+\\
+&= \frac{cos(2\theta) + 1}{2}
+\end{align}
+Which is precisely the power reduction formula! (You can verify this with a search online) Lets apply this to some more powers of cosine. We'll be reusing the expanded complex form for each subsequent power.
+\\
+I will not prove the formulas are correct rigorously. But viewing them on
+desmos they certainly appear to match up. 
+\\
+https://www.desmos.com/calculator/1a6havywh1
+\newpage
+\begin{align}
+\cos^3\theta &= cos^2\theta \cdot cos\theta
+\\
+&= \frac{1}{8}(e^{2i\theta} + 2 + e^{-2i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{8}(e^{3i\theta} + 3e^{i\theta} + 3e^{-i\theta} + e^{-3i\theta})
+\\
+&= \frac{1}{8}(2\cos(3\theta) + 6cos(\theta))
+\\
+&= \frac{1}{4}\cos(3\theta) + \frac{3}{4}\cos(\theta)
+\end{align}
+
+\begin{align}
+\cos^4\theta &= cos^3\theta \cdot cos\theta
+\\
+&= \frac{1}{16}(e^{3i\theta} + 3e^{i\theta} + 3e^{-i\theta} + e^{-3i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{16}(e^{4i\theta} + 4e^{2i\theta} + 6 + 4e^{-2i\theta} + e^{-4i\theta})
+\\
+&= \frac{1}{16}(2\cos(4\theta) + 8\cos(2\theta) + 6)
+\\
+&= \frac{1}{8}\cos(4\theta) + \frac{1}{2}\cos(2\theta) + \frac{3}{8}
+\end{align}
+
+\begin{align}
+\cos^5\theta &= cos^4\theta \cdot cos\theta
+\\
+&= \frac{1}{32}(e^{4i\theta} + 4e^{2i\theta} + 6 + 4e^{-2i\theta} + e^{-4i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{32}(e^{5i\theta} + 5e^{3i\theta} + 10e^{i\theta} + 10e^{-i\theta} + 5e^{-3i\theta} + e^{-5i\theta})
+\\
+&= \frac{1}{32}(2\cos(5\theta) + 10\cos(3\theta) + 20\cos(\theta))
+\\
+&= \frac{1}{16}\cos(5\theta) + \frac{5}{16}\cos(3\theta) + \frac{5}{8}\cos(\theta)
+\end{align}
+If you were paying attention to the coefficients at (3), (8), (13), (18), you might have noticed a relationship to pascal's triangle...
+
+\newpage
+
+Let's draw something like pascal's triangle, where each column signifies a coefficient in the expanded complex form of $cos^nx$. 
+Each row is the previous row multiplied by $(e^{i\theta} + e^{-i\theta})$.
+\\
+\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$cos^n$ & $e^{-5i\theta}$ & $e^{-4i\theta}$ & $e^{-3i\theta}$ & $e^{-2i\theta}$ & $e^{-i\theta}$ & $e^0$ & $e^{i\theta}$ & $e^{i2\theta}$ & $e^{i3\theta}$ & $e^{i4\theta}$ & $e^{i5\theta}$
+\\
+\hline
+1 &  &  &  &  &  & 1 &  &  &  &  & 
+\\
+\hline
+$\cos(\theta)$ &  &  &  &  & 1 & 0 & 1 &  &  &  & 
+\\
+\hline
+$\cos^2(\theta)$ &  &  &  & 1 & 0 & 2 & 0 & 1 &  &  & 
+\\
+\hline
+$\cos^3(\theta)$ &  &  & 1 & 0 & 3 & 0 & 3 & 0 & 1 &  & 
+\\
+\hline
+$\cos^4(\theta)$ &  & 1 & 0 & 4 & 0 & 6 & 0 & 4 & 0 & 1 & 
+\\
+\hline
+$\cos^5(\theta)$ & 1 & 0 & 5 & 0 & 10 & 0 & 10 & 0 & 5 & 0 & 1
+\\
+\hline
+\end{tabular}
+\\
+\\
+This makes sense. Because if we have a term $e^{\alpha i\theta}$ in the previous row, and we multiply by $(e^{i\theta} + e^{-i\theta})$. We should have the terms $e^{(\alpha + 1) i\theta}$ and $e^{(\alpha - 1) i\theta}$ in the next iteration. If we were to be continuously multiplying by $(e^{i\theta} + 1)$ instead then we would have exactly pascal's triangle, but instead we have pascal's triangle with gaps that are 0's.
+\\
+\\
+It's important to note that this is the step before the conversion into cosine's of multiples of $\theta$. Furthermore in the final conversion, everything must be divided by $2^n$, and all coefficients except for $e^0$ must be multiplied by 2(as the formula dictates).
+\\
+\\
+This is enough information to make a program that writes out each power reduction formula up to $n$ iteratively...
+
+\end{document}
