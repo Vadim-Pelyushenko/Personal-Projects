@@ -32,6 +32,7 @@ public class Power_Reduction
 	
 	public static void printFormula(int[] coeffs, int n) 
 	{
+		System.out.printf("\ncos^%d(x) = ",n);
 		int div = (int) Math.pow(2, n - 1);
 		
 		int start = coeffs[0] == 0 ? 3 : 2;
