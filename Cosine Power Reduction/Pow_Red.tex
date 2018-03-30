@@ -49,7 +49,48 @@ So lets start applying what we now know.
 \\
 &= \frac{cos(2\theta) + 1}{2}
 \end{align}
-Which is precisely the power reduction formula! (You can verify this with a search online)
+Which is precisely the power reduction formula! (You can verify this with a search online) Lets apply this to some more powers of cosine. We'll be reusing the expanded complex form for each subsequent power.
+\\
+I will not prove the formulas are correct rigorously. But viewing them on
+desmos they certainly appear to match up. 
+\\
+https://www.desmos.com/calculator/1a6havywh1
+\newpage
+\begin{align}
+\cos^3\theta &= cos^2\theta \cdot cos\theta
+\\
+&= \frac{1}{8}(e^{2i\theta} + 2 + e^{-2i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{8}(e^{3i\theta} + 3e^{i\theta} + 3e^{-i\theta} + e^{-3i\theta})
+\\
+&= \frac{1}{8}(2\cos(3\theta) + 6cos(\theta))
+\\
+&= \frac{1}{4}\cos(3\theta) + \frac{3}{4}\cos(\theta)
+\end{align}
 
+\begin{align}
+\cos^4\theta &= cos^3\theta \cdot cos\theta
+\\
+&= \frac{1}{16}(e^{3i\theta} + 3e^{i\theta} + 3e^{-i\theta} + e^{-3i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{16}(e^{4i\theta} + 4e^{2i\theta} + 6 + 4e^{-2i\theta} + e^{-4i\theta})
+\\
+&= \frac{1}{16}(2\cos(4\theta) + 8\cos(2\theta) + 6)
+\\
+&= \frac{1}{8}\cos(4\theta) + \frac{1}{2}\cos(2\theta) + \frac{3}{8}
+\end{align}
+
+\begin{align}
+\cos^5\theta &= cos^4\theta \cdot cos\theta
+\\
+&= \frac{1}{32}(e^{4i\theta} + 4e^{2i\theta} + 6 + 4e^{-2i\theta} + e^{-4i\theta})(e^{i\theta} + e^{-i\theta})
+\\
+&= \frac{1}{32}(e^{5i\theta} + 5e^{3i\theta} + 10e^{i\theta} + 10e^{-i\theta} + 5e^{-3i\theta} + e^{-5i\theta})
+\\
+&= \frac{1}{32}(2\cos(5\theta) + 10\cos(3\theta) + 20\cos(\theta))
+\\
+&= \frac{1}{16}\cos(5\theta) + \frac{5}{16}\cos(3\theta) + \frac{5}{8}\cos(\theta)
+\end{align}
+If you were paying attention to the coefficients at step 3, 8, 13, 18, you might have noticed a relationship to pascal's triangle...
 
 \end{document}
