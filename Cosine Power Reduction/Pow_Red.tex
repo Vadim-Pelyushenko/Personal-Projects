@@ -1,5 +1,7 @@
 \documentclass[12pt]{article}
 
+\usepackage{amsmath}
+
 \title{A Generalized Algorithm for producing Integer Power Reduction Formulas
 of Cosine}
 
@@ -32,6 +34,22 @@ $e^{i\theta} + e^{-i\theta} = 2\cos(\theta) \to
 \cos(\theta) = \frac{1}{2}(e^{i\theta} + e^{-i\theta})$
 \\
 \\
-This will be very important, because it means that whenever we can turn, for instance, $e^{3i} + e^{-3i} \to 2\cos(3x)$
+This will be very important, because it means that whenever we can turn, for instance, $e^{7i} + e^{-7i} \to 2\cos(7x)$
+\\
+\\
+So lets start applying what we now know.
+\begin{align}
+\cos^2\theta &= \cos(\theta) \cdot \cos(\theta) 
+\\
+&= \frac{1}{4}(e^{i\theta} + e^{-i\theta})^2
+\\
+&= \frac{1}{4}(e^{2i\theta} + 2 + e^{-2i\theta})
+\\
+&= \frac{1}{4}(2cos(2\theta) + 2)
+\\
+&= \frac{cos(2\theta) + 1}{2}
+\end{align}
+Which is precisely the power reduction formula! (You can verify this with a search online)
+
 
 \end{document}
