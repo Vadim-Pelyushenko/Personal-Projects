@@ -123,5 +123,14 @@ $\cos^5(\theta)$ & 1 & 0 & 5 & 0 & 10 & 0 & 10 & 0 & 5 & 0 & 1
 \\
 \hline
 \end{tabular}
+\\
+\\
+This makes sense. Because if we have a term $e^{\alpha i\theta}$ in the previous row, and we multiply by $(e^{i\theta} + e^{-i\theta})$. We should have the terms $e^{(\alpha + 1) i\theta}$ and $e^{(\alpha - 1) i\theta}$ in the next iteration. If we were to be continuously multiplying by $(e^{i\theta} + 1)$ instead then we would have exactly pascal's triangle, but instead we have pascal's triangle with gaps that are 0's.
+\\
+\\
+It's important to note that this is the step before the conversion into cosine's of multiples of $\theta$. Furthermore in the final conversion, everything must be divided by $2^n$, and all coefficients except for $e^0$ must be multiplied by 2(as the formula dictates).
+\\
+\\
+This is enough information to make a program that writes out each power reduction formula up to $n$ iteratively...
 
 \end{document}
