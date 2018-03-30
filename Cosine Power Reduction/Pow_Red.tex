@@ -91,6 +91,37 @@ https://www.desmos.com/calculator/1a6havywh1
 \\
 &= \frac{1}{16}\cos(5\theta) + \frac{5}{16}\cos(3\theta) + \frac{5}{8}\cos(\theta)
 \end{align}
-If you were paying attention to the coefficients at step 3, 8, 13, 18, you might have noticed a relationship to pascal's triangle...
+If you were paying attention to the coefficients at (3), (8), (13), (18), you might have noticed a relationship to pascal's triangle...
+
+\newpage
+
+Let's draw something like pascal's triangle, where each column signifies a coefficient in the expanded complex form of $cos^nx$. 
+Each row is the previous row multiplied by $(e^{i\theta} + e^{-i\theta})$.
+\\
+\\
+\begin{tabular}{|c|c|c|c|c|c|c|c|c|c|c|c|}
+\hline
+$cos^n$ & $e^{-5i\theta}$ & $e^{-4i\theta}$ & $e^{-3i\theta}$ & $e^{-2i\theta}$ & $e^{-i\theta}$ & $e^0$ & $e^{i\theta}$ & $e^{i2\theta}$ & $e^{i3\theta}$ & $e^{i4\theta}$ & $e^{i5\theta}$
+\\
+\hline
+1 &  &  &  &  &  & 1 &  &  &  &  & 
+\\
+\hline
+$\cos(\theta)$ &  &  &  &  & 1 & 0 & 1 &  &  &  & 
+\\
+\hline
+$\cos^2(\theta)$ &  &  &  & 1 & 0 & 2 & 0 & 1 &  &  & 
+\\
+\hline
+$\cos^3(\theta)$ &  &  & 1 & 0 & 3 & 0 & 3 & 0 & 1 &  & 
+\\
+\hline
+$\cos^4(\theta)$ &  & 1 & 0 & 4 & 0 & 6 & 0 & 4 & 0 & 1 & 
+\\
+\hline
+$\cos^5(\theta)$ & 1 & 0 & 5 & 0 & 10 & 0 & 10 & 0 & 5 & 0 & 1
+\\
+\hline
+\end{tabular}
 
 \end{document}
