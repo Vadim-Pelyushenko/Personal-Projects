@@ -18,5 +18,20 @@ could be dealt with in particular ways, but I did not believe they had any utili
 \\
 \textbf{After watching the video however, I became a believer. So I present a way
 a way I've discovered, for generating the integer power reduction formulas for cosine which hinges on the imaginary representation of cosine.}
+\newpage
+\noindent This analysis begins with (1)Euler's Formula:
+$e^{i\theta} = \cos(\theta) + i\sin(\theta)$
+\\
+Plugging in $-\theta$, we see that 
+$e^{-i\theta} = \cos(-\theta) + i\sin(-\theta) = \cos(\theta) - i\sin(\theta)$
+\\
+\\
+We can then add these two equations to get the following identity(2):
+\\
+$e^{i\theta} + e^{-i\theta} = 2\cos(\theta) \to 
+\cos(\theta) = \frac{1}{2}(e^{i\theta} + e^{-i\theta})$
+\\
+\\
+This will be very important, because it means that whenever we can turn, for instance, $e^{3i} + e^{-3i} \to 2\cos(3x)$
 
 \end{document}
