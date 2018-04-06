@@ -1,5 +1,6 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Random;
 
 public class SetSelector<T> implements Iterable<Selection<T>>
 {
@@ -23,6 +24,19 @@ public class SetSelector<T> implements Iterable<Selection<T>>
 		total = 1;
 		for (int i = 0; i < quant.length; i++)
 			total *= (quant[i] + 1);
+	}
+	
+	/** Creates a random selection from the quantities of each object. Any possible
+	 * selection is equally likely.
+	 * @return
+	 */
+	public Selection<T> randomlySelection() 
+	{
+		Random rand = new Random();
+		int[] q = new int[quant.length];
+		for(int i = 0; i < q.length; i++)
+			q[i] = rand.nextInt(quant[i]);
+		return new Selection<T>(vals,q);
 	}
 
 	// This returns an iterator that iterates through all the possible selections from the set
