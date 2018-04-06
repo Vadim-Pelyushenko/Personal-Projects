@@ -23,7 +23,14 @@ public class Selection<T>
 	
 	public int getQuantity(T item) 
 	{
+		if(!sel.containsKey(item))
+			throw new NoSuchElementException();
 		return sel.get(item);
+	}
+	
+	public boolean contains(T item) 
+	{
+		return sel.containsKey(item);
 	}
 	
 	public void take(T item) 
@@ -48,5 +55,21 @@ public class Selection<T>
 			sel.remove(item);
 		else
 			sel.put(item, val - n);
+	}
+	
+	public void add(T item) 
+	{
+		if(sel.containsKey(item))
+			sel.put(item, sel.get(item) + 1);
+		else
+			sel.put(item, 1);
+	}
+	
+	public void add(T item, int n) 
+	{
+		if(sel.containsKey(item))
+			sel.put(item, sel.get(item) + n);
+		else
+			sel.put(item, n);
 	}
 }
