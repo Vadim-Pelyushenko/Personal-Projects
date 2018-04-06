@@ -1,3 +1,4 @@
+import java.security.InvalidParameterException;
 import java.util.HashMap;
 import java.util.NoSuchElementException;
 
@@ -38,6 +39,14 @@ public class Selection<T>
 	
 	public void take(T item, int n) 
 	{
-		
+		if(!sel.containsKey(item))
+			throw new NoSuchElementException();
+		int val = sel.get(item);
+		if(val < n)
+			throw new InvalidParameterException("There are less items than you are trying to take");
+		if(val == n)
+			sel.remove(item);
+		else
+			sel.put(item, val - n);
 	}
 }

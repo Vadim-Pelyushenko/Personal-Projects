@@ -1,7 +1,7 @@
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 
-public class SetSelector<T> implements Iterable<int[]>
+public class SetSelector<T> implements Iterable<Selection<T>>
 {
 	T[] vals;
 	int[] quant;
@@ -30,12 +30,12 @@ public class SetSelector<T> implements Iterable<int[]>
 	// instance is: [0,0] [0,1] [0,2] [1,0] [1,1] [1,2] [2,0] [2,1] [2,2] [3,0] [3,1] [3,2]
 	// where each index represents the quantities of each object.
 	@Override
-	public Iterator<int[]> iterator()
+	public Iterator<Selection<T>> iterator()
 	{
 		return new SetSelectorIterator();
 	}
 
-	class SetSelectorIterator implements Iterator<int[]>
+	class SetSelectorIterator implements Iterator<Selection<T>>
 	{
 		int current = 0;
 		int[] quanIter;
@@ -52,11 +52,11 @@ public class SetSelector<T> implements Iterable<int[]>
 		}
 
 		@Override
-		public int[] next()
+		public Selection<T> next()
 		{
 			if (!hasNext())
 				throw new NoSuchElementException();
-			int[] result = quanIter.clone();
+			Selection<T> result = new Selection<T>(vals,quanIter);
 			for (int i = 0; i < quanIter.length; i++)
 			{
 				if (quanIter[i] == quant[i])
