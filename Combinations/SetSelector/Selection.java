@@ -24,7 +24,7 @@ public class Selection<T>
 	public int getQuantity(T item) 
 	{
 		if(!sel.containsKey(item))
-			throw new NoSuchElementException();
+			return 0;
 		return sel.get(item);
 	}
 	
