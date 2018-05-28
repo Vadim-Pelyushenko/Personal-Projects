@@ -13,6 +13,6 @@ The program would output x^2 + 2x + 1
 The polynomial of the lowest degree that fits will be outputted. But at most the polynomial
 will be of degree (n-1) if given n inputs.
 This program could be done trivially were it to be turned into an augmented matrix and solved
-with Reduced Row Echelon Form. However, the runtime complexity for solving a matrix is O(n^3).
+by putting in Reduced Row Echelon Form. However, the runtime complexity for solving a matrix is O(n^3).
 The runtime complexity of the algorithm I've come up with is O(n^2)... My proof for this as
 of yet unwritten, but can be described in person :P
